@@ -13,14 +13,13 @@
 php artisan key:generate 
 ```
 3. SILAHKAN HIDUPKAN XAMPP APACHE DAN MYSQL
-BUAT DATABASE
+BUAT DATABASE <br>
 'ujian_akhir_praktikum_pweb'
 
-4. BUKA FILE .env.example
-silahkan ubah
-DB_DATABASE=LARAVEL
-
-menjadi :
+4. BUKA FILE .env.example <br>
+Silahkan ubah <br>
+DB_DATABASE=LARAVEL <br> <br>
+Menjadi : <br>
 DB_DATABASE=ujian_akhir_praktikum_pweb
 
 5. ketik di termninal
