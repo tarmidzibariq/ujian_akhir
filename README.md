@@ -1,6 +1,8 @@
 ## DIBUTUHKAN INSTALL<br>
-1. NODE.JS
-2. COMPOSER
+### 1. NODE.JS <br>
+https://nodejs.org/en <br>
+### 2. COMPOSER  <br>
+https://getcomposer.org/
 
 ## CARA RUN <br>
 1. SILAHKAN KETIK DI TERMINAL
