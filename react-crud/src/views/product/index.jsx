@@ -30,6 +30,14 @@ export default function ProductIndex() {
 
   }, []);
 
+  // method deleteProduct
+  const deleteProduct = async (id) => { 
+
+    await api.delete(`/api/products/${id}`)
+      .then(() => { 
+        fetchDataProducts();
+    })
+  }
   return (
     <div className="container mt-5 mb-5">
       <div className="row">
@@ -59,7 +67,7 @@ export default function ProductIndex() {
                         <td>{ product.price }</td>
                         <td className="text-center">
                             <Link to={`/products/edit/${product.id}`} className="btn btn-sm btn-primary rounded-sm shadow border-0 me-2">EDIT</Link>
-                            <button className="btn btn-sm btn-danger rounded-sm shadow border-0">DELETE</button>
+                            <button onClick={()=>deleteProduct(product.id)} className="btn btn-sm btn-danger rounded-sm shadow border-0">DELETE</button>
                         </td>
                     </tr>
                   ))
