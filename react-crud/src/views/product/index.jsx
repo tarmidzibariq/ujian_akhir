@@ -134,7 +134,7 @@ export default function ProductIndex() {
                   </td>
                   <td className="px-6 py-4">{product.name}</td>
                   <td className="px-6 py-4">{product.stock}</td>
-                  <td className="px-6 py-4">${product.price}</td>
+                  <td className="px-6 py-4">Rp {product.price}</td>
                   <td className="px-6 py-4">
                     <Link
                       to={`/products/edit/${product.id}`}
