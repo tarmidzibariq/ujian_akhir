@@ -7,25 +7,28 @@ KELOMPOK
 ## DIBUTUHKAN INSTALL<br>
 ### 1. NODE.JS <br>
 https://nodejs.org/en <br>
+
 ### 2. COMPOSER  <br>
 https://getcomposer.org/
 
 # **A. LARAVEL**
-## CARA RUN <br>
-### 1. SILAHKAN KETIK DI TERMINAL
+## CARA RUN PROJECT LARAVEL<br>
+
+### 1. ARAHKAN KE DIRECTORY "laravel"
+```bash
+ cd laravel
+```
+
+### 2. SILAHKAN KETIK DI TERMINAL
 ```bash
  composer install
 ```
 
-### 2. SILAHKAN KETIK DITERMINAL
-```bash
-php artisan key:generate 
-```
 ### 3. SILAHKAN BUKA XAMPP DAN HIDUPKAN APACHE DAN MYSQL
 * BUAT DATABASE <br>
 'ujian_akhir_praktikum_pweb'
 
-### 4. UBAH NAMA FILE .env.example MENJADI .env -> <br>
+### 4. UBAH NAMA FILE .env.example MENJADI .env <br>
 * Silahkan ubah <br>
 DB_DATABASE=LARAVEL <br> <br>
 * Menjadi : <br>
@@ -36,19 +39,35 @@ DB_DATABASE=ujian_akhir_praktikum_pweb
 php artisan migrate
 ```
 
-### 6. RUN PROJECT
+### 6. ketik di termninal
+```bash
+php artisan storage:link
+```
+
+### 7. ketik di termninal
+```bash
+php artisan key:generate 
+```
+
+### 8. RUN PROJECT
 ```bash
 php artisan serve
 ```
 
-# **B. REACT JS**
-## CARA RUN <br>
-### 1. SILAHKAN KETIK DI TERMINAL
+# **B. REACT JS + VITE**
+## CARA RUN REACT JS + VITE <br>
+
+### 1. ARAHKAN KE DIRECTORY "react-crud"
+```bash
+ cd react-crud
+```
+
+### 2. SILAHKAN KETIK DI TERMINAL
 ```bash
  npm install
 ```
-## CARA RUN <br>
-### 2. RUN PROJECT
+
+### 3. RUN PROJECT
 ```bash
  npm run dev
 ```
