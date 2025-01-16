@@ -4,6 +4,8 @@ import api from '../../api';
 import { Link } from 'react-router-dom';
 
 export default function ProductEdit() {
+
+  // define state
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [stock, setStock] = useState('');
@@ -11,9 +13,13 @@ export default function ProductEdit() {
   const [errors, setErrors] = useState('');
   const [loading, setLoading] = useState(false);
   
+  // define navigate 
   const navigate = useNavigate();
+
+  // define ID
   const { id } = useParams();
   
+  // define method "fetchDetailProduct"
   const fetchDetailProduct = async () => {
     setLoading(true);
     try {
@@ -32,10 +38,12 @@ export default function ProductEdit() {
     }
   }
 
+
   useEffect(() => {
     fetchDetailProduct();
   }, [id]); // Tambahkan id sebagai dependency
   
+  // define method "handleFileChange"
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -51,6 +59,7 @@ export default function ProductEdit() {
     }
   }
 
+  // validate form
   const validateForm = () => {
     const newErrors = {};
     if (!name) newErrors.name = "Name is required";
@@ -61,6 +70,7 @@ export default function ProductEdit() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // define method "updateProduct" 
   const updateProduct = async (e) => { 
     e.preventDefault();
     if (!validateForm()) return;
@@ -74,6 +84,7 @@ export default function ProductEdit() {
     formData.append('price', price);
     formData.append('_method', 'PUT');
 
+    // success callback
     try {
       await api.post(`/api/products/${id}`, formData);
       navigate('/products');
@@ -82,6 +93,7 @@ export default function ProductEdit() {
     }
   };
 
+  // loading return values
   if (loading) {
     return <div className="text-center py-4">Loading...</div>;
   }

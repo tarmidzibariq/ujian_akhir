@@ -19,12 +19,15 @@ export default function ProductCreate() {
   // state validation
   const [errors, setErrors] = useState([]);
   
+  // define navigate
   const navigate = useNavigate();
 
+  // define method "handleFileChange"
   const handleFileChange = (e) => {
     setImage(e.target.files[0]);
   }
 
+  // validate form submission
   const validateForm = () => {
     const newErrors = {};
     if (!image) newErrors.image = "Image is required";
@@ -36,6 +39,7 @@ export default function ProductCreate() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // define method "storeProduct"
   const storeProduct = async (e) => { 
     e.preventDefault();
 
@@ -47,6 +51,7 @@ export default function ProductCreate() {
     formData.append('stock', stock);
     formData.append('price', price);
 
+    // success callback
     try {
       await api.post('/api/products', formData);
       navigate('/products');
