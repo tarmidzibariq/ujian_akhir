@@ -1,47 +1,16 @@
 //import Link from react router dom
-import { Link } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 
 //import routes
 import Routes from "./routes";
-// export default function App() { 
-//   return (
-//     <>
-//       <div>
-//         <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-//           <div className="container">
-//             <Link to="/" className="navbar-brand">HOME</Link>
-//             <button
-//               className="navbar-toggler"
-//               type="button"
-//               data-bs-toggle="collapse"
-//               data-bs-target="#navbarSupportedContent"
-//               aria-controls="navbarSupportedContent"
-//               aria-expanded="false"
-//               aria-label="Toggle navigation"
-//             >
-//               <span className="navbar-toggler-icon"></span>
-//             </button>
-//             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-//               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-//                 <li className="nav-item">
-//                   <Link to="/products" className="nav-link active" aria-current="page">PRODUCTS</Link>
-//                 </li>
-//               </ul>
-//             </div>
-//           </div>
-//         </nav>
-//       </div>
 
-//       <Routes/>
-    
-//     </>
-//   )
-// }
 import React, { useState } from "react";
+
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const location = useLocation();
   return (
     <div>
       <nav className="bg-gray-800">
@@ -91,20 +60,35 @@ export default function App() {
             </button>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <Link to="/"
-                  href="#"
-                  className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                  aria-current="page"
+                {/* Dashboard Link */}
+                <Link
+                  to="/"
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${
+                    location.pathname === '/' 
+                      ? 'bg-gray-900 text-white' // Highlight untuk Dashboard
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  }`}
                 >
                   Dashboard
                 </Link>
-                <Link to="/products" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Products</Link>
+
+                {/* Products Link */}
+                <Link
+                  to="/products"
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${
+                    location.pathname === '/products'
+                      ? 'bg-gray-900 text-white' // Highlight untuk Products
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  }`}
+                >
+                  Products
+                </Link>
               </div>
             </div>
           </div>
+
           
         </div>
       </div>
@@ -114,14 +98,22 @@ export default function App() {
           <div className="space-y-1 px-2 pb-3 pt-2">
             <Link to="/"
               href="#"
-              className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+              className={`block rounded-md px-3 py-2 text-sm font-medium ${
+                    location.pathname === '/'
+                      ? 'bg-gray-900 text-white' // Highlight untuk Products
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  }`}
               aria-current="page"
             >
               Dashboard
             </Link>
             <Link to="/products"
               href="#"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              className={`block rounded-md px-3 py-2 text-sm font-medium ${
+                    location.pathname === '/products'
+                      ? 'bg-gray-900 text-white' // Highlight untuk Products
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  }`}
             >
               Products
             </Link>
